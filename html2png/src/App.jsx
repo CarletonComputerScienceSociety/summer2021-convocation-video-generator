@@ -48,14 +48,21 @@ function App() {
                             <div className="student-name">{student.fullname}</div>
                             <div className="student-titles">
                                 <div className="student-title">{student.degree}</div>
+                                { student.distinction &&
+                                    <div className="student-title">{student.distinction}</div>
+                                }
                                 {
                                     student.minors.map(minor => (
                                         <div className="student-title">{minor}</div>
                                     ))
                                 }
+                                { student.specialization &&
+                                    <div className="student-title">{student.specialization}</div>
+                                }
                                 { student.coop &&
                                     <div className="student-title">Co-operative Education</div>
                                 }
+
                             </div>
                         </div>
                     ))
