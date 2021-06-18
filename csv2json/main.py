@@ -9,11 +9,12 @@ data = []
 MAX_GROUP_SIZE = 6
 DEGREE_INDEX = 3
 SPECIALIZATION_INDEX = 4
-MINOR1_INDEX = 5
-MINOR2_INDEX = 6
-COOP_INDEX = 7
-DISTINCTION_INDEX = 9
-FULLNAME_INDEX = 11
+MINOR1_INDEX = 6
+MINOR2_INDEX = 7
+COOP_INDEX = 8
+DISTINCTION_INDEX = 10
+MEDAL_INDEX = 11
+FULLNAME_INDEX = 12
 
 def getFullname(row):
     return re.sub("\s\s+" , " ", row[FULLNAME_INDEX].rstrip())
@@ -60,8 +61,12 @@ def getCoop(row):
 
     return False
 
+def getMedal(row):
+    if len(row[MEDAL_INDEX]) > 2:
+        return row[MEDAL_INDEX].rstrip()
+
 # Parse data
-with open('graduates.csv') as csv_file:
+with open('graduates2.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
 
     group = []
@@ -74,7 +79,8 @@ with open('graduates.csv') as csv_file:
                 "distinction": getDistinction(row),
                 "specialization": getSpecialization(row),
                 "minors": getMinors(row),
-                "coop": getCoop(row)
+                "coop": getCoop(row),
+                "medal": getMedal(row)
             }
 
             group.append(student)
