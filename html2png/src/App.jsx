@@ -59,6 +59,9 @@ function App() {
                                 { student.specialization &&
                                     <div className="student-title">{student.specialization}</div>
                                 }
+                                { student.medal &&
+                                    <div className="student-title">{student.medal}</div>
+                                }
                                 { student.coop &&
                                     <div className="student-title">Co-operative Education</div>
                                 }

@@ -17,7 +17,7 @@
   padding: 4rem;
   padding-left: 0;
   padding-right: 0;
-  padding-top: 8rem;
+  padding-top: 4rem;
 }
 
 .student {
@@ -25,6 +25,7 @@
   text-align: center;
   color: white;
   height: 320px;
+  margin-bottom: 0.5rem;
 }
 
 .student-name {
@@ -40,8 +41,8 @@
 }
 
 .student-titles {
-  margin-top: 1rem;
-  font-size: 30px;
+  margin-top: 0.5rem;
+  font-size: 26px;
   font-weight: bold;
 }
 
