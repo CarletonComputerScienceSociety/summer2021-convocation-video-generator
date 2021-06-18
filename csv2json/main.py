@@ -28,13 +28,13 @@ def getDistinction(row):
         return "With Distinction"
 
 def getDegree(row):
-    if "Bachelor of Computer Science" in row[DEGREE_INDEX]:
-        return "Bachelor of Computer Science Honours"
-    elif "Bachelor of Computer Science Major" in row[DEGREE_INDEX]:
+    if "Bachelor of Computer Science Major" in row[DEGREE_INDEX].rstrip():
         return "Bachelor of Computer Science Major"
-    elif "Master of Computer Science" in row[DEGREE_INDEX]:
+    elif "Bachelor of Computer Science" in row[DEGREE_INDEX].rstrip():
+        return "Bachelor of Computer Science Honours"
+    elif "Master of Computer Science" in row[DEGREE_INDEX].rstrip():
         return "Master of Computer Science"
-    elif "Doctor of Philosophy" in row[DEGREE_INDEX]:
+    elif "Doctor of Philosophy" in row[DEGREE_INDEX].rstrip():
         return "Doctor of Philosophy Computer Science"
 
 def getSpecialization(row):
@@ -71,7 +71,10 @@ with open('graduates2.csv') as csv_file:
 
     group = []
 
+
+
     for row in csv_reader:
+        print(getDegree(row))
         if "Name" not in row[0]:
             student = {
                 "fullname": getFullname(row),
