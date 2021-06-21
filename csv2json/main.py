@@ -32,6 +32,8 @@ def getDegree(row):
         return "Bachelor of Computer Science Major"
     elif "Bachelor of Computer Science" in row[DEGREE_INDEX].rstrip():
         return "Bachelor of Computer Science Honours"
+    elif "Master of Arts Human-Computer Interaction" in row[DEGREE_INDEX].rstrip():
+        return "Master of Arts Human-Computer Interaction"
     elif "Master of Computer Science" in row[DEGREE_INDEX].rstrip():
         return "Master of Computer Science"
     elif "Doctor of Philosophy" in row[DEGREE_INDEX].rstrip():
@@ -71,8 +73,6 @@ with open('graduates2.csv') as csv_file:
 
     group = []
 
-
-
     for row in csv_reader:
         print(getDegree(row))
         if "Name" not in row[0]:
@@ -92,6 +92,7 @@ with open('graduates2.csv') as csv_file:
                 data.append(group)
                 group = []
 
+    data.append(group)
 
 # Serializing json
 json_object = json.dumps(data, indent = 4)
