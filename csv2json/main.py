@@ -9,12 +9,12 @@ data = []
 MAX_GROUP_SIZE = 6
 DEGREE_INDEX = 3
 SPECIALIZATION_INDEX = 4
-MINOR1_INDEX = 6
-MINOR2_INDEX = 7
-COOP_INDEX = 8
-DISTINCTION_INDEX = 10
-MEDAL_INDEX = 11
-FULLNAME_INDEX = 12
+MINOR1_INDEX = 5
+MINOR2_INDEX = 6
+COOP_INDEX = 7
+DISTINCTION_INDEX = 8
+MEDAL_INDEX = 10
+FULLNAME_INDEX = 11
 
 def getFullname(row):
     return re.sub("\s\s+" , " ", row[FULLNAME_INDEX].rstrip())
@@ -38,10 +38,16 @@ def getDegree(row):
         return "Master of Computer Science"
     elif "Doctor of Philosophy" in row[DEGREE_INDEX].rstrip():
         return "Doctor of Philosophy Computer Science"
+    elif "Master of Applied Science" in row[DEGREE_INDEX].rstrip():
+        return "Master of Applied Science"
+    elif "Master of Arts" in row[DEGREE_INDEX].rstrip():
+        return "Master of Arts"
 
 def getSpecialization(row):
     if "Specialization in Data Science" in row[SPECIALIZATION_INDEX]:
         return "Specialization in Data Science"
+    if "Human-Computer Interaction" in row[SPECIALIZATION_INDEX]:
+        return "Human-Computer Interaction"
 
 def getMinors(row):
     minors = []
@@ -68,7 +74,7 @@ def getMedal(row):
         return row[MEDAL_INDEX].rstrip()
 
 # Parse data
-with open('graduates2.csv') as csv_file:
+with open('graduates4.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
 
     group = []
